@@ -41,6 +41,12 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
 
+    - name: Apply Patches
+      run: |
+        git config --global user.email "no-reply@github.com"
+        git config --global user.name "Github Actions"
+        ./gradlew applyPatches --stacktrace
+
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
