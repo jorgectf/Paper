@@ -2,7 +2,7 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ 'master', 'ver/1.8.8', 'ver/1.9.4', 'ver/1.10.2', 'ver/1.11.2', 'ver/1.12.2', 'ver/1.13.2', 'ver/1.14', 'ver/1.15.2', 'ver/1.16.5', 'ver/1.17.1', 'ver/1.18.2', 'ver/1.19.4' ]
+    branches: [ 'master' ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ 'master' ]
@@ -12,8 +12,7 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
-    timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
+    runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
